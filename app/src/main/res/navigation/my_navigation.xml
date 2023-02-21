@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_navigation"
+    app:startDestination="@id/popularMovieFragment">
+    <fragment
+        android:id="@+id/popularMovieFragment"
+        android:name="com.example.movieapptest.view.fragment.PopularMovieFragment"
+        android:label="Popular Movies"
+        tools:layout="@layout/fragment_popular_movie" >
+        <action
+            android:id="@+id/action_popularMovieFragment_to_favouriteMovieFragment"
+            app:destination="@id/favouriteMovieFragment" />
+        <action
+            android:id="@+id/action_popularMovieFragment_to_detailMovieFragment"
+            app:destination="@id/detailMovieFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/favouriteMovieFragment"
+        android:name="com.example.movieapptest.view.fragment.FavouriteMovieFragment"
+        android:label="Favourite Movies"
+        tools:layout="@layout/fragment_favourite_movie" >
+        <action
+            android:id="@+id/action_favouriteMovieFragment_to_favouriteDetailFragment"
+            app:destination="@id/favouriteDetailFragment" />
+        <action
+            android:id="@+id/action_favouriteMovieFragment_to_detailMovieFragment"
+            app:destination="@id/detailMovieFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/upcomingMovieFragment"
+        android:name="com.example.movieapptest.view.fragment.UpcomingMovieFragment"
+        android:label="Upcoming Movies"
+        tools:layout="@layout/fragment_upcoming_movie" >
+        <action
+            android:id="@+id/action_upcomingMovieFragment_to_detailMovieFragment"
+            app:destination="@id/detailMovieFragment" />
+        <action
+            android:id="@+id/action_upcomingMovieFragment_to_favouriteMovieFragment"
+            app:destination="@id/favouriteMovieFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailMovieFragment"
+        android:name="com.example.movieapptest.view.fragment.DetailMovieFragment"
+        android:label="Movie Detail"
+        tools:layout="@layout/fragment_detail_movie">
+        <argument
+            android:name="detail"
+            app:argType="com.example.movieapptest.model.remote.response_data.Result"/>
+    </fragment>
+    <fragment
+        android:id="@+id/favouriteDetailFragment"
+        android:name="com.example.movieapptest.view.fragment.FavouriteDetailFragment"
+        android:label="fragment_favourite_detail"
+        tools:layout="@layout/fragment_favourite_detail" >
+        <argument android:name="detail"
+                  app:argType="com.example.movieapptest.model.local.data.MovieEntity" />
+    </fragment>
+</navigation>
